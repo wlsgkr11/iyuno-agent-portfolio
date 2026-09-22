@@ -1,0 +1,369 @@
+{
+  "total_questions": 30,
+  "hits": 30,
+  "misses": 0,
+  "recall_at_3": 1.0,
+  "average_latency_seconds": 0.2014,
+  "results": [
+    {
+      "id": 1,
+      "question": "How can I improve account security?",
+      "expected_source": "authentication.md",
+      "retrieved_sources": [
+        "authentication.md",
+        "security_questions.md",
+        "authentication.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.4044
+    },
+    {
+      "id": 2,
+      "question": "What should I do after a password leak?",
+      "expected_source": "authentication.md",
+      "retrieved_sources": [
+        "authentication.md",
+        "authentication.md",
+        "password_storage.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1876
+    },
+    {
+      "id": 3,
+      "question": "How should passwords be securely stored?",
+      "expected_source": "password_storage.md",
+      "retrieved_sources": [
+        "password_storage.md",
+        "password_storage.md",
+        "authentication.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1909
+    },
+    {
+      "id": 4,
+      "question": "What is secure password hashing?",
+      "expected_source": "password_storage.md",
+      "retrieved_sources": [
+        "password_storage.md",
+        "password_storage.md",
+        "password_storage.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1741
+    },
+    {
+      "id": 5,
+      "question": "How can I protect against SQL injection?",
+      "expected_source": "sql_injection_prevention.md",
+      "retrieved_sources": [
+        "sql_injection_prevention.md",
+        "sql_injection_prevention.md",
+        "sql_injection_prevention.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1803
+    },
+    {
+      "id": 6,
+      "question": "What is input validation used for?",
+      "expected_source": "input_validation.md",
+      "retrieved_sources": [
+        "input_validation.md",
+        "input_validation.md",
+        "input_validation.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1965
+    },
+    {
+      "id": 7,
+      "question": "How can I prevent cross-site scripting?",
+      "expected_source": "xss_prevention.md",
+      "retrieved_sources": [
+        "xss_prevention.md",
+        "csrf_prevention.md",
+        "xss_prevention.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.2086
+    },
+    {
+      "id": 8,
+      "question": "How can I protect an application from CSRF attacks?",
+      "expected_source": "csrf_prevention.md",
+      "retrieved_sources": [
+        "csrf_prevention.md",
+        "csrf_prevention.md",
+        "csrf_prevention.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1956
+    },
+    {
+      "id": 9,
+      "question": "What is session management?",
+      "expected_source": "session_management.md",
+      "retrieved_sources": [
+        "session_management.md",
+        "authentication.md",
+        "session_management.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.2014
+    },
+    {
+      "id": 10,
+      "question": "How should session cookies be protected?",
+      "expected_source": "session_management.md",
+      "retrieved_sources": [
+        "session_management.md",
+        "transport_layer_security.md",
+        "session_management.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1813
+    },
+    {
+      "id": 11,
+      "question": "What security headers should a web application use?",
+      "expected_source": "secure_headers.md",
+      "retrieved_sources": [
+        "secure_headers.md",
+        "secure_headers.md",
+        "secure_headers.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1852
+    },
+    {
+      "id": 12,
+      "question": "How can HTTP security headers improve security?",
+      "expected_source": "secure_headers.md",
+      "retrieved_sources": [
+        "secure_headers.md",
+        "secure_headers.md",
+        "secure_headers.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1922
+    },
+    {
+      "id": 13,
+      "question": "How should uploaded files be secured?",
+      "expected_source": "file_upload.md",
+      "retrieved_sources": [
+        "file_upload.md",
+        "file_upload.md",
+        "file_upload.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.2044
+    },
+    {
+      "id": 14,
+      "question": "What are common risks of file uploads?",
+      "expected_source": "file_upload.md",
+      "retrieved_sources": [
+        "file_upload.md",
+        "file_upload.md",
+        "file_upload.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1758
+    },
+    {
+      "id": 15,
+      "question": "How should security logs be handled?",
+      "expected_source": "logging.md",
+      "retrieved_sources": [
+        "logging.md",
+        "logging.md",
+        "logging.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1975
+    },
+    {
+      "id": 16,
+      "question": "What information should be included in security logs?",
+      "expected_source": "logging.md",
+      "retrieved_sources": [
+        "logging.md",
+        "logging.md",
+        "logging.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1851
+    },
+    {
+      "id": 17,
+      "question": "How should cryptographic keys be managed?",
+      "expected_source": "key_management.md",
+      "retrieved_sources": [
+        "key_management.md",
+        "key_management.md",
+        "key_management.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1924
+    },
+    {
+      "id": 18,
+      "question": "What is secure cryptographic storage?",
+      "expected_source": "cryptographic_storage.md",
+      "retrieved_sources": [
+        "cryptographic_storage.md",
+        "password_storage.md",
+        "cryptographic_storage.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.2169
+    },
+    {
+      "id": 19,
+      "question": "How can an application protect sensitive data?",
+      "expected_source": "cryptographic_storage.md",
+      "retrieved_sources": [
+        "cryptographic_storage.md",
+        "cryptographic_storage.md",
+        "cryptographic_storage.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.2155
+    },
+    {
+      "id": 20,
+      "question": "How can TLS protect application traffic?",
+      "expected_source": "transport_layer_security.md",
+      "retrieved_sources": [
+        "transport_layer_security.md",
+        "transport_layer_security.md",
+        "transport_layer_security.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1878
+    },
+    {
+      "id": 21,
+      "question": "Why is HTTPS important for web applications?",
+      "expected_source": "transport_layer_security.md",
+      "retrieved_sources": [
+        "transport_layer_security.md",
+        "transport_layer_security.md",
+        "transport_layer_security.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1832
+    },
+    {
+      "id": 22,
+      "question": "What are common API security risks?",
+      "expected_source": "owasp_api_security.md",
+      "retrieved_sources": [
+        "owasp_api_security.md",
+        "owasp_api_security.md",
+        "owasp_api_security.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1974
+    },
+    {
+      "id": 23,
+      "question": "How can APIs be secured?",
+      "expected_source": "owasp_api_security.md",
+      "retrieved_sources": [
+        "owasp_api_security.md",
+        "owasp_api_security.md",
+        "secure_code_review.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1869
+    },
+    {
+      "id": 24,
+      "question": "What are common security risks in large language model applications?",
+      "expected_source": "owasp_llm_security.md",
+      "retrieved_sources": [
+        "owasp_llm_security.md",
+        "owasp_llm_security.md",
+        "xss_prevention.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.186
+    },
+    {
+      "id": 25,
+      "question": "How can an LLM application be protected from security attacks?",
+      "expected_source": "owasp_llm_security.md",
+      "retrieved_sources": [
+        "authentication.md",
+        "owasp_llm_security.md",
+        "authentication.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1931
+    },
+    {
+      "id": 26,
+      "question": "What are the OWASP Top 10 web application security risks?",
+      "expected_source": "owasp_top10.md",
+      "retrieved_sources": [
+        "owasp_top10.md",
+        "owasp_top10.md",
+        "owasp_top10.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.2422
+    },
+    {
+      "id": 27,
+      "question": "How should security questions be handled?",
+      "expected_source": "security_questions.md",
+      "retrieved_sources": [
+        "security_questions.md",
+        "security_questions.md",
+        "security_questions.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.2286
+    },
+    {
+      "id": 28,
+      "question": "What should be considered during a secure code review?",
+      "expected_source": "secure_code_review.md",
+      "retrieved_sources": [
+        "secure_code_review.md",
+        "secure_code_review.md",
+        "docker_security.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1868
+    },
+    {
+      "id": 29,
+      "question": "How can HTML5 applications be secured?",
+      "expected_source": "html5_security.md",
+      "retrieved_sources": [
+        "html5_security.md",
+        "session_management.md",
+        "xss_prevention.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1797
+    },
+    {
+      "id": 30,
+      "question": "What security practices should be considered when using Docker?",
+      "expected_source": "docker_security.md",
+      "retrieved_sources": [
+        "docker_security.md",
+        "docker_security.md",
+        "docker_security.md"
+      ],
+      "hit_at_3": true,
+      "latency_seconds": 0.1848
+    }
+  ]
+}

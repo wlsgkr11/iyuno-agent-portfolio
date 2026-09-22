@@ -1,0 +1,13 @@
+{
+  "evaluation_set_size": 30,
+  "retrieval": {
+    "k": 3,
+    "hits": 30,
+    "misses": 0,
+    "recall_at_3": 1.0
+  },
+  "latency": {
+    "average_seconds": 0.2014
+  },
+  "evaluation_status": "completed"
+}

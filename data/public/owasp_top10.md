@@ -1,0 +1,199 @@
+OWASP Top 10 | OWASP Foundation
+
+OWASP Foundation
+
+Sign in
+
+Donate
+
+OWASP Top 10
+
+The OWASP Top 10 is the reference standard for the most critical web application security risks. Adopting the OWASP Top 10 is perhaps the most effective first step towards changing your software development culture focused on producing secure code.
+
+View on GitHub
+
+Documentation
+
+About
+
+OWASP Top 10
+
+The most current released version is the
+
+OWASP Top 10 2025
+
+.
+
+Previous versions are available at
+
+OWASP Top 10 2021
+
+and
+
+OWASP Top 10 2017 (PDF)
+
+. Older versions are available in the
+
+GitHub repo
+
+.
+
+The OWASP Top 10 is a standard awareness document for developers and web application security. It represents a broad consensus about the most critical security risks to web applications.
+
+Globally recognized by developers as the first step towards more secure coding.
+
+Companies should adopt this document and start the process of ensuring that their web applications minimize these risks. Using the OWASP Top 10 is perhaps the most effective first step towards changing the software development culture within your organization into one that produces more secure code.
+
+Social
+
+•
+
+Link
+
+Project Resources
+
+Documentation
+
+GitHub
+
+Making of OWASP Top 10
+
+Previous Version (2021)
+
+Previous Version (2017)
+
+OWASP Top 10 2017 PDF
+
+Project Leaders
+
+Brian Glas
+
+Email
+
+Neil Smithline
+
+Email
+
+Tanya Janca
+
+Email
+
+Torsten Gigler
+
+Email
+
+Andrew van der Stock
+
+Project Leader
+
+Email
+
+Project Information
+
+🚩
+
+Flagship Project
+
+Classification
+
+📖
+
+Documentation
+
+Language
+
+Markdown
+
+License
+
+CC-By-SA-4.0
+
+Latest Version
+
+2025
+
+Contributors
+
+183
+
+GitHub Stars
+
+6000
+
+Corporate Supporters
+
+Become a Corporate Supporter
+
+Meet our Corporate Supporters
+
+OWASP is a nonprofit foundation improving software security through open-source projects, global communities, and education. All resources are free and open to everyone.
+
+Quick Links
+
+Awards
+
+Chapters
+
+Community
+
+Contact
+
+Corporate Supporters
+
+Events
+
+News
+
+OWASP Community
+
+Projects
+
+Security
+
+Staff
+
+OWASP Merch
+
+Legal & Governance
+
+About OWASP
+
+Board
+
+Board EU
+
+Finance (all documents)
+
+Finance & Governance
+
+Policies
+
+Impact Report 2025
+
+Strategic Plan 2026
+
+Socials
+
+Bluesky
+
+GitHub
+
+LinkedIn
+
+Mastodon
+
+Slack
+
+X
+
+YouTube
+
+Make a Donation
+
+Join Now
+
+Join Slack
+
+OWASP, the OWASP logo, and Global AppSec are registered trademarks and AppSec Days, AppSec California, AppSec Cali, SnowFROC, OWASP Boston Application Security Conference, and LASCON are trademarks of the OWASP Foundation, Inc.
+
+© 2026, OWASP Foundation Inc. All rights reserved.
