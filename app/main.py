@@ -15,6 +15,13 @@ class QuestionRequest(BaseModel):
     question: str
 
 
+class AgentResponse(BaseModel):
+    type: str
+    answer: str | float
+    source: str | None = None
+    sources: list[str] | None = None
+
+
 @app.get("/")
 def home():
     return {
@@ -23,7 +30,7 @@ def home():
     }
 
 
-@app.post("/ask")
+@app.post("/ask", response_model=AgentResponse)
 def ask_question(request: QuestionRequest):
 
     result = agent(request.question)
