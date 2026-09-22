@@ -1,156 +1,309 @@
 # Iyuno AI Agent Portfolio
 
-## Project
+ÇĞ»ı °úÁ¦ ÇÁ·ÎÁ§Æ® ? **Agentic Knowledge Triage**
 
-### Agentic Knowledge Triage
+°ø°³µÈ º¸¾È¡¤±â¼ú ¹®¼­¸¦ ¼öÁıÇÏ°í °Ë»öÇÏ¿© Áú¹®¿¡ °ü·ÃµÈ ¹®¼­¸¦ Ã£¾ÆÁÖ´Â AI Agent ÇÁ·ÎÁ§Æ®ÀÔ´Ï´Ù.
 
-ê³µê°œëœ ë³´ì•ˆÂ·ê¸°ìˆ  ë¬¸ì„œë¥¼ ê¸°ë°˜ìœ¼ë¡œ ì‚¬ìš©ìì˜ ì§ˆë¬¸ì— ë‹µë³€í•˜ëŠ”  
-AI Agent ì‹œìŠ¤í…œì„ êµ¬í˜„í•˜ëŠ” í”„ë¡œì íŠ¸ì…ë‹ˆë‹¤.
+Iyuno AI Agent Engineer Ã¤¿ë°ø°íÀÇ RAG, Tool Calling/API Orchestration, Evaluation ¿ä±¸»çÇ×À» Âü°íÇÏ¿© ±¸ÇöÇß½À´Ï´Ù.
 
-## Goal
+- GitHub Repository: https://github.com/wlsgkr11/iyuno-agent-portfolio
+- Job Posting: https://iyuno.wd3.myworkdayjobs.com/careers/job/seoul/ai-agent-engineer_jr101122
 
-ì‹¤ì œ AI Agent Engineer ì±„ìš©ê³µê³ ì—ì„œ ìš”êµ¬í•˜ëŠ”  
-RAG, Tool Calling, API ì—°ë™ ë° Evaluation ê¸°ëŠ¥ì„  
-ì‘ë™í•˜ëŠ” í”„ë¡œì íŠ¸ í˜•íƒœë¡œ êµ¬í˜„í•©ë‹ˆë‹¤.
+---
 
-## Main Features
+## 1. Project Goal
 
-- Public document collection
-- Document cleaning
-- Document chunking
-- Embedding
-- Vector search
-- RAG-based question answering
-- Document citation
-- Calculator tool
-- Policy Lookup tool
-- Agent routing
-- FastAPI API
-- Evaluation
-- Pytest
-- GitHub Actions CI
+»ç¿ëÀÚ°¡ º¸¾È ¹× ±â¼ú °ü·Ã Áú¹®À» ÀÔ·ÂÇÏ¸é Agent°¡ Áú¹® À¯ÇüÀ» ÆÇ´ÜÇÏ°í ÀûÀıÇÑ ±â´ÉÀ» ¼±ÅÃÇÕ´Ï´Ù.
 
-## Tech Stack
+ÇöÀç ±¸ÇöµÈ Èå¸§:
 
-- Python
-- RAG
-- ChromaDB
-- Vector Database
-- FastAPI
-- Pytest
-- GitHub Actions
-
-## Job Posting
-
-### Iyuno AI Agent Engineer
-
-https://iyuno.wd3.myworkdayjobs.com/careers/job/seoul/ai-agent-engineer_jr101122
-
-## Project Architecture
-
-User Question  
-â†“  
-FastAPI  
-â†“  
-Agent Router  
-â†“  
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”  
-â”‚ Calculator Tool     â”‚  
-â”‚ Policy Lookup Tool  â”‚  
-â”‚ RAG Retriever       â”‚  
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜  
-â†“  
+`	ext
+User Question
+      ¡é
+FastAPI
+      ¡é
+Agent Router
+      ¡é
+Calculator / Policy Lookup / RAG Retriever
+      ¡é
 Response + Source
 
-## Evaluation
+2. Job Posting Requirements Mapping
+Job RequirementProject Evidence
+AI Agent ½Ã½ºÅÛ ¼³°è ¹× °³¹ßapp/agent.py Agent Router
+RAG ±â¹İ °Ë»öChromaDB Vector Search + RAG Retriever
+Tool Calling / API OrchestrationCalculator + Policy Lookup + Routing
+Multi-step ½ÇÇà Èå¸§Question ¡æ Router ¡æ Tool/RAG ¡æ Response
+Evaluation30°³ Æò°¡¼Â + Recall@3 + Latency + Faithfulness
+API / DB ÅëÇÕFastAPI + ChromaDB
+¿À·ù ºĞ¼®evaluation/error_analysis.md
 
-### Retrieval Evaluation
+ÇöÀç Tool ±â´ÉÀº ½ÇÁ¦ LLM Function CallingÀÌ ¾Æ´Ï¶ó ±ÔÄ¢ ±â¹İ Agent RoutingÀ¸·Î ±¸ÇöµÇ¾î ÀÖ½À´Ï´Ù.
+3. Main Features
+Document Processing
+°ø°³ º¸¾È¡¤±â¼ú ¹®¼­ 20°³ ¼öÁı
+¹®¼­ Á¤Á¦
+Document Chunking
+Embedding
+ChromaDB Vector Store ±¸Ãà
+RAG
+Áú¹®À» Vector Search·Î °Ë»ö
+°ü·Ã ¹®¼­ Top-K °Ë»ö
+°Ë»ö °á°úÀÇ Source Ç¥½Ã
+°Ë»ö °á°ú¸¦ ±â¹İÀ¸·Î ´äº¯ µ¥ÀÌÅÍ Á¦°ø
+Calculator Tool
 
-Evaluation Set: 30 questions
+°£´ÜÇÑ ¼ö½Ä °è»êÀ» ¼öÇàÇÕ´Ï´Ù.
 
-- Hits: 30
-- Misses: 0
-- Recall@3: 1.0
-- Average Retrieval Latency: approximately 0.20 seconds
+Example
 
-### Faithfulness Approximation
+Question: What is 120 * 0.15?
 
-- Evaluation Set: 30 questions
-- Faithful: 29
-- Unfaithful: 1
-- Faithfulness: 96.67%
+Result: 18.0
+Policy Lookup Tool
 
-Faithfulness í‰ê°€ëŠ” ì§ˆë¬¸ê³¼ ê²€ìƒ‰ëœ ì›ë¬¸ ì‚¬ì´ì˜ í‚¤ì›Œë“œ ê²¹ì¹¨ì„ ì´ìš©í•œ ê°„ë‹¨í•œ ìë™ ê·¼ì‚¬ í‰ê°€ì…ë‹ˆë‹¤.
+º¸¾È Á¤Ã¥ °ü·Ã Áú¹®À» ºĞ¼®ÇÏ¿© Á¤Ã¥ Á¤º¸¸¦ Á¶È¸ÇÕ´Ï´Ù.
 
-ë”°ë¼ì„œ ì´ ê°’ì€ LLM ê¸°ë°˜ì˜ ì •ì‹ Faithfulness í‰ê°€ ì ìˆ˜ê°€ ì•„ë‹ˆë©°, ê²€ìƒ‰ëœ ë¬¸ì„œê°€ ì§ˆë¬¸ê³¼ ê´€ë ¨ëœ ê·¼ê±°ë¥¼ í¬í•¨í•˜ëŠ”ì§€ë¥¼ í™•ì¸í•˜ê¸° ìœ„í•œ ë³´ì¡° ì§€í‘œë¡œ ì‚¬ìš©í–ˆìŠµë‹ˆë‹¤.
+Example
 
-í‰ê°€ ê²°ê³¼ëŠ” ë‹¤ìŒ íŒŒì¼ì— ì €ì¥ë˜ì–´ ìˆìŠµë‹ˆë‹¤.
+Question: What is the password policy?
 
-- `evaluation/results.json`
-- `evaluation/metrics.json`
-- `evaluation/faithfulness_results.json`
-- `evaluation/faithfulness_metrics.json`
+Source: OWASP Password Storage Cheat Sheet
+Agent Routing
+Calculation Question
+        ¡é
+Calculator
 
-## Testing
+Policy Question
+        ¡é
+Policy Lookup
 
-Pytest: 5 passed
+Security / Technical Question
+        ¡é
+RAG Retriever
+4. Tech Stack
+Python
+FastAPI
+ChromaDB
+LangChain
+BeautifulSoup
+pytest
+GitHub Actions
+5. Project Structure
+iyuno-agent-portfolio/
+¦§¦¡¦¡ app/
+¦¢   ¦§¦¡¦¡ agent.py
+¦¢   ¦§¦¡¦¡ main.py
+¦¢   ¦§¦¡¦¡ tools.py
+¦¢   ¦¦¦¡¦¡ policy.py
+¦§¦¡¦¡ data/
+¦¢   ¦¦¦¡¦¡ public/
+¦§¦¡¦¡ evaluation/
+¦§¦¡¦¡ scripts/
+¦§¦¡¦¡ tests/
+¦¢   ¦¦¦¡¦¡ test_tools.py
+¦§¦¡¦¡ requirements.txt
+¦¦¦¡¦¡ README.md
+6. Installation
 
-## Continuous Integration
+°¡»óÈ¯°æÀ» »ı¼ºÇÏ°í ÇÊ¿äÇÑ ÆĞÅ°Áö¸¦ ¼³Ä¡ÇÕ´Ï´Ù.
 
-GitHub Actionsë¥¼ ì´ìš©í•˜ì—¬ Push ë° Pull Request ì‹œ  
-Pytestê°€ ìë™ìœ¼ë¡œ ì‹¤í–‰ë˜ë„ë¡ êµ¬ì„±í–ˆìŠµë‹ˆë‹¤.
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+7. Run FastAPI
+.\.venv\Scripts\python.exe -m uvicorn app.main:app --reload
 
-## Current Progress
+½ÇÇà ÈÄ ¾Æ·¡ ÁÖ¼Ò¿¡¼­ API ¹®¼­¸¦ È®ÀÎÇÒ ¼ö ÀÖ½À´Ï´Ù.
 
-- [x] GitHub repository setup
-- [x] Collect 20 public documents
-- [x] Document cleaning
-- [x] Implement document ingestion
-- [x] Implement chunking
-- [x] Implement embedding
-- [x] Implement vector search
-- [x] Implement RAG retrieval
-- [x] Add document citation
-- [x] Add Calculator Tool
-- [x] Add Policy Lookup Tool
-- [x] Add Agent routing
-- [x] Build FastAPI API
-- [x] Add evaluation set
-- [x] Evaluate 30 questions
-- [x] Measure Recall@3
-- [x] Measure retrieval latency
-- [x] Add faithfulness approximation evaluation
-- [x] Add evaluation graphs
-- [x] Add Pytest
-- [x] Add GitHub Actions CI
+http://127.0.0.1:8000/docs
+8. API Examples
+Calculator
+Invoke-RestMethod -Uri "http://127.0.0.1:8000/ask" -Method Post -ContentType "application/json" -Body '{"question":"What is 120 * 0.15?"}'
 
-- [ ] LLM-based final answer generation
-- [ ] Real LLM Function Calling
-- [ ] Search API integration
-- [ ] Policy lookup API
-- [ ] Feedback loop
-- [ ] Streamlit demo
-- [ ] Demo video
-- [ ] Final retrospective
+Expected result:
 
-## Limitations
+type: tool
+answer: 18.0
+source: calculator
+Policy Lookup
+Invoke-RestMethod -Uri "http://127.0.0.1:8000/ask" -Method Post -ContentType "application/json" -Body '{"question":"What is the password policy?"}'
+RAG
+Invoke-RestMethod -Uri "http://127.0.0.1:8000/ask" -Method Post -ContentType "application/json" -Body '{"question":"How can I improve account security?"}'
+9. Evaluation
 
-í˜„ì¬ RAG ì‹œìŠ¤í…œì€ ê²€ìƒ‰ëœ ë¬¸ì„œì™€ ì¶œì²˜ë¥¼ ë°˜í™˜í•˜ëŠ” ë°©ì‹ìœ¼ë¡œ êµ¬í˜„ë˜ì–´ ìˆìŠµë‹ˆë‹¤.
+ÃÑ 30°³ÀÇ Áú¹®À» »ç¿ëÇÏ¿© °Ë»ö ¼º´ÉÀ» Æò°¡Çß½À´Ï´Ù.
 
-ë³„ë„ì˜ LLMì„ ì´ìš©í•œ ìµœì¢… ìì—°ì–´ ë‹µë³€ ìƒì„± ê¸°ëŠ¥ì€ ì•„ì§ êµ¬í˜„ ì¤‘ì…ë‹ˆë‹¤.
+Retrieval Evaluation
+Total Questions: 30
+Hits: 30
+Misses: 0
+Recall@3: 1.0
+Average Retrieval Latency: 0.2014 seconds
 
-í˜„ì¬ Calculator Toolê³¼ Policy Lookup Toolì€ ê·œì¹™ ê¸°ë°˜ routing ë°©ì‹ìœ¼ë¡œ ë™ì‘í•˜ë©°, í–¥í›„ ì‹¤ì œ LLM Function Calling ë°©ì‹ìœ¼ë¡œ í™•ì¥í•  ì˜ˆì •ì…ë‹ˆë‹¤.
+Æò°¡ °á°ú ÆÄÀÏ:
 
-í˜„ì¬ Faithfulness í‰ê°€ëŠ” LLM ê¸°ë°˜ í‰ê°€ê°€ ì•„ë‹Œ ì§ˆë¬¸ê³¼ ê²€ìƒ‰ ë¬¸ì„œì˜ í‚¤ì›Œë“œ ê²¹ì¹¨ì„ ì´ìš©í•œ ê°„ë‹¨í•œ ê·¼ì‚¬ í‰ê°€ ë°©ì‹ì…ë‹ˆë‹¤.
+evaluation/results.json
+evaluation/metrics.json
+Faithfulness Approximation
+Total Questions: 30
+Faithful: 29
+Unfaithful: 1
+Faithfulness: 96.67%
 
-## Future Work
+ÇöÀç Faithfulness Æò°¡´Â LLM ±â¹İ Æò°¡°¡ ¾Æ´Ñ keyword-overlap ±â¹İ ±Ù»ç Æò°¡ÀÔ´Ï´Ù.
 
-- LLM ê¸°ë°˜ ìµœì¢… ë‹µë³€ ìƒì„±
-- ì‹¤ì œ Function Calling ê¸°ë°˜ Tool Calling
-- Search API ë° Policy Lookup API ì—°ë™
-- LLM ê¸°ë°˜ Faithfulness í‰ê°€
-- Evaluation ê·¸ë˜í”„ ê³ ë„í™”
-- ì‚¬ìš©ì Feedback Loop
-- Streamlit Demo
-- Demo ì˜ìƒ ì œì‘
-- ìµœì¢… í”„ë¡œì íŠ¸ íšŒê³  ì‘ì„±
+µû¶ó¼­ ÇØ´ç ¼öÄ¡´Â Á¤½Ä LLM-as-a-Judge Æò°¡ °á°ú°¡ ¾Æ´Ï¶ó ÇöÀç °Ë»ö °á°ú¸¦ Æò°¡ÇÏ±â À§ÇÑ ½ÇÇèÀû ÁöÇ¥ÀÔ´Ï´Ù.
+
+10. Error Analysis
+
+Faithfulness Æò°¡¿¡¼­ 1°³ÀÇ ½ÇÆĞ »ç·Ê°¡ È®ÀÎµÇ¾ú½À´Ï´Ù.
+
+Question
+
+How can I improve account security?
+
+Expected Source
+
+authentication.md
+
+Result
+
+faithful = false
+
+°Ë»ö Æò°¡¿¡¼­´Â ±â´ë ¹®¼­°¡ °Ë»öµÇ¾úÁö¸¸ keyword-overlap ¹æ½ÄÀÇ Faithfulness Æò°¡¿¡¼­ ½ÇÆĞ·Î ºĞ·ùµÇ¾ú½À´Ï´Ù.
+
+ÀÚ¼¼ÇÑ ºĞ¼®:
+
+evaluation/error_analysis.md
+
+ÇâÈÄ °³¼± ¹æÇâ:
+
+LLM ±â¹İ Faithfulness Æò°¡
+Semantic Similarity Æò°¡
+Query Expansion
+Chunking ¹× Retrieval ¼³Á¤ °³¼±
+11. Evaluation Graphs
+
+Æò°¡ °á°ú¸¦ ½Ã°¢È­Çß½À´Ï´Ù.
+
+evaluation/recall_at_3.png
+evaluation/latency.png
+12. Testing
+
+Pytest¸¦ »ç¿ëÇÏ¿© Tool ±â´ÉÀ» Å×½ºÆ®Çß½À´Ï´Ù.
+
+ÇöÀç Å×½ºÆ® °á°ú:
+
+5 passed
+
+Å×½ºÆ® ÆÄÀÏ:
+
+tests/test_tools.py
+
+Å×½ºÆ® Ç×¸ñ:
+
+Calculator addition
+Calculator multiplication
+Calculator division
+Calculator subtraction
+Invalid expression handling
+13. Continuous Integration
+
+GitHub Actions¸¦ »ç¿ëÇÏ¿© Push ¹× Pull Request ½Ã Å×½ºÆ®°¡ ÀÚµ¿ ½ÇÇàµÇµµ·Ï ±¸¼ºÇß½À´Ï´Ù.
+
+GitHub Push
+    ¡é
+GitHub Actions
+    ¡é
+Pytest
+    ¡é
+5 Tests Passed
+14. Data Sources
+
+ÇÁ·ÎÁ§Æ®¿¡¼­´Â °ø°³ÀûÀ¸·Î Á¢±Ù °¡´ÉÇÑ º¸¾È¡¤±â¼ú ¹®¼­¸¦ »ç¿ëÇß½À´Ï´Ù.
+
+ÁÖ¿ä ÃâÃ³:
+
+OWASP Cheat Sheet Series
+OWASP API Security
+OWASP Top 10
+OWASP LLM Security
+±âÅ¸ OWASP º¸¾È °ü·Ã °ø°³ ¹®¼­
+
+¹®¼­ ¼öÁı ½ÃÁ¡:
+
+2026-09
+
+°¢ ¿ø¹® ¹®¼­ÀÇ ÀÌ¿ë Á¶°Ç ¹× ¶óÀÌ¼±½º´Â ÇØ´ç °ø½Ä ÃâÃ³ÀÇ ¶óÀÌ¼±½º Á¤º¸¸¦ µû¸¨´Ï´Ù.
+
+ÇÁ·ÎÁ§Æ®¿¡´Â °³ÀÎ Á¤º¸, ºñ°ø°³ È¸»ç ÀÚ·á ¶Ç´Â API SecretÀ» Æ÷ÇÔÇÏÁö ¾Ê¾Ò½À´Ï´Ù.
+
+15. Limitations
+
+ÇöÀç ÇÁ·ÎÁ§Æ®¿¡´Â ´ÙÀ½°ú °°Àº Á¦ÇÑ»çÇ×ÀÌ ÀÖ½À´Ï´Ù.
+
+ÇöÀç RAG´Â °Ë»öµÈ ¹®¼­¿Í Source¸¦ ¹İÈ¯ÇÏ¸ç º°µµÀÇ LLM ÃÖÁ¾ ´äº¯ »ı¼º ´Ü°è´Â ±¸ÇöÇÏÁö ¾Ê¾Ò½À´Ï´Ù.
+Tool ±â´ÉÀº ÇöÀç ±ÔÄ¢ ±â¹İ RoutingÀ¸·Î µ¿ÀÛÇÕ´Ï´Ù.
+½ÇÁ¦ LLM Function CallingÀº ¾ÆÁ÷ ±¸ÇöÇÏÁö ¾Ê¾Ò½À´Ï´Ù.
+Policy LookupÀº ¿ÜºÎ API°¡ ¾Æ´Ñ ÇÁ·ÎÁ§Æ® ³»ºÎ Á¤Ã¥ µ¥ÀÌÅÍº£ÀÌ½º¸¦ »ç¿ëÇÕ´Ï´Ù.
+Faithfulness Æò°¡´Â keyword-overlap ±â¹İ ±Ù»ç ¹æ¹ıÀÔ´Ï´Ù.
+Feedback Loop´Â ¾ÆÁ÷ ±¸ÇöÇÏÁö ¾Ê¾Ò½À´Ï´Ù.
+16. Future Work
+
+ÇâÈÄ ´ÙÀ½ ±â´ÉÀ» Ãß°¡ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+
+LLM ±â¹İ ÃÖÁ¾ ´äº¯ »ı¼º
+½ÇÁ¦ LLM Function Calling
+Search API ¹× Policy API ¿¬µ¿
+LLM ±â¹İ Faithfulness Æò°¡
+»ç¿ëÀÚ Feedback Loop
+Streamlit Demo
+Demo Video
+´õ¿í ´Ù¾çÇÑ Evaluation Dataset
+Retrieval ¹× Agent Routing ¼º´É °³¼±
+17. Current Progress
+ GitHub Repository
+ Public Document Collection
+ 20 Public Documents
+ Document Cleaning
+ Chunking
+ Embedding
+ Vector Search
+ RAG Retrieval
+ Source Citation
+ Calculator Tool
+ Policy Lookup Tool
+ Agent Routing
+ FastAPI API
+ Evaluation Dataset
+ 30 Evaluation Questions
+ Recall@3
+ Retrieval Latency
+ Faithfulness Approximation
+ Evaluation Graphs
+ Error Analysis
+ Pytest
+ GitHub Actions CI
+ LLM Final Answer Generation
+ Real LLM Function Calling
+ Search API
+ External Policy API
+ Feedback Loop
+ Streamlit Demo
+ Demo Video
+ Final Retrospective
+18. Retrospective
+
+ÀÌ¹ø ÇÁ·ÎÁ§Æ®¸¦ ÅëÇØ ´Ü¼øÈ÷ LLMÀ» »ç¿ëÇÏ´Â °Í°ú Agent ½Ã½ºÅÛÀ» ±¸¼ºÇÏ´Â °ÍÀÇ Â÷ÀÌ¸¦ °æÇèÇß½À´Ï´Ù.
+
+Æ¯È÷ ¹®¼­ ¼öÁıºÎÅÍ Á¤Á¦, Chunking, Embedding, Vector Search, RAG, Tool Routing, API, Evaluation, Testing±îÁö ÇÏ³ªÀÇ ÇÁ·ÎÁ§Æ® Èå¸§À¸·Î ¿¬°áÇØº¸¸é¼­ °¢ ±¸¼º ¿ä¼Ò°¡ ¾î¶»°Ô ¿¬°áµÇ´ÂÁö ÀÌÇØÇÒ ¼ö ÀÖ¾ú½À´Ï´Ù.
+
+¶ÇÇÑ 30°³ÀÇ Æò°¡ Áú¹®À» ±¸¼ºÇÏ°í Recall@3¿Í Latency¸¦ ÃøÁ¤ÇÏ¸é¼­ ±â´É ±¸Çö»Ó¸¸ ¾Æ´Ï¶ó °á°ú¸¦ Á¤·®ÀûÀ¸·Î È®ÀÎÇÏ´Â °úÁ¤µµ °æÇèÇß½À´Ï´Ù.
+
+Faithfulness Æò°¡¿¡¼­´Â ´Ü¼øÇÑ keyword-overlap ¹æ½ÄÀÇ ÇÑ°èµµ È®ÀÎÇß½À´Ï´Ù. ¾ÕÀ¸·Î´Â LLM ±â¹İ Æò°¡¿Í ½ÇÁ¦ Function Calling, Feedback Loop µîÀ» Ãß°¡ÇÏ¿© º¸´Ù ½ÇÁ¦ ¼­ºñ½º¿¡ °¡±î¿î Agent ½Ã½ºÅÛÀ¸·Î ¹ßÀü½ÃÅ°°íÀÚ ÇÕ´Ï´Ù.
+
+License
+
+This project is for educational purposes.
+
+Document licenses and usage conditions follow the original public sources.
