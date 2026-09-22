@@ -3,11 +3,8 @@ import re
 import chromadb
 
 from app.tools import calculator
+from app.policy import policy_lookup
 
-
-# --------------------------------------------------
-# ChromaDB 설정
-# --------------------------------------------------
 
 chroma_client = chromadb.PersistentClient(
     path="chroma_db"
@@ -18,12 +15,7 @@ collection = chroma_client.get_collection(
 )
 
 
-# --------------------------------------------------
-# RAG 검색
-# --------------------------------------------------
-
 def search_documents(question, n_results=3):
-
     results = collection.query(
         query_texts=[question],
         n_results=n_results
@@ -36,13 +28,7 @@ def search_documents(question, n_results=3):
     return documents, metadatas, distances
 
 
-# --------------------------------------------------
-# Calculator Tool
-# --------------------------------------------------
-
 def use_calculator(question):
-
-    # 계산식이 포함된 질문인지 확인
     match = re.search(
         r"\d+(?:\.\d+)?\s*[+\-*/]\s*\d+(?:\.\d+)?",
         question
@@ -56,25 +42,41 @@ def use_calculator(question):
     return calculator(expression)
 
 
-# --------------------------------------------------
-# Agent
-# --------------------------------------------------
+def use_policy_lookup(question):
+    policy_keywords = [
+        "policy",
+        "password policy",
+        "authentication policy",
+        "session policy",
+        "logging policy",
+        "보안 정책",
+        "비밀번호 정책",
+        "인증 정책",
+        "세션 정책",
+        "로그 정책"
+    ]
+
+    question_lower = question.lower()
+
+    for keyword in policy_keywords:
+        if keyword in question_lower:
+            return policy_lookup(question)
+
+    return None
+
 
 def agent(question):
-
     print()
     print("=" * 60)
     print("AGENT")
     print("=" * 60)
-
     print()
     print("Question:", question)
 
-    # 계산 관련 질문인지 확인
+    # 1. Calculator Tool
     calculation_result = use_calculator(question)
 
     if calculation_result is not None:
-
         print()
         print("[Tool Selected]")
         print("Calculator")
@@ -89,7 +91,33 @@ def agent(question):
             "source": "calculator"
         }
 
-    # 계산이 아니면 RAG 검색
+    # 2. Policy Lookup Tool
+    policy_result = use_policy_lookup(question)
+
+    if policy_result is not None:
+        print()
+        print("[Tool Selected]")
+        print("Policy Lookup")
+
+        print()
+        print("Policy Title:")
+        print(policy_result["title"])
+
+        print()
+        print("Description:")
+        print(policy_result["description"])
+
+        print()
+        print("Source:")
+        print(policy_result["source"])
+
+        return {
+            "type": "policy",
+            "answer": policy_result["description"],
+            "source": policy_result["source"]
+        }
+
+    # 3. RAG Retriever
     print()
     print("[Tool Selected]")
     print("RAG Retriever")
@@ -107,7 +135,6 @@ def agent(question):
         zip(documents, metadatas, distances),
         start=1
     ):
-
         source = metadata.get(
             "source",
             "Unknown source"
@@ -128,22 +155,13 @@ def agent(question):
     }
 
 
-# --------------------------------------------------
-# Test
-# --------------------------------------------------
-
 if __name__ == "__main__":
-
     print()
     print("Iyuno AI Agent")
     print("Agentic Knowledge Triage")
 
-    # 테스트 1: RAG
-    agent(
-        "How can I improve account security?"
-    )
+    agent("How can I improve account security?")
 
-    # 테스트 2: Calculator
-    agent(
-        "What is 120 * 0.15?"
-    )
+    agent("What is 120 * 0.15?")
+
+    agent("What is the password policy?")

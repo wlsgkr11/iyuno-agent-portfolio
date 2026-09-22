@@ -35,6 +35,7 @@ def ask_question(request: QuestionRequest):
 
     result = agent(request.question)
 
+    # Calculator Tool
     if result["type"] == "tool":
         return {
             "type": "tool",
@@ -42,6 +43,15 @@ def ask_question(request: QuestionRequest):
             "source": result["source"]
         }
 
+    # Policy Lookup Tool
+    if result["type"] == "policy":
+        return {
+            "type": "policy",
+            "answer": result["answer"],
+            "source": result["source"]
+        }
+
+    # RAG Retriever
     return {
         "type": "rag",
         "answer": result["documents"][0],
