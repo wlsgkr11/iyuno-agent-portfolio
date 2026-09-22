@@ -1,0 +1,7 @@
+{
+  "evaluation_set_size": 30,
+  "faithful_answers": 29,
+  "unfaithful_answers": 1,
+  "faithfulness": 0.9667,
+  "evaluation_method": "keyword overlap between question and retrieved source document"
+}
