@@ -1,10 +1,10 @@
 # Iyuno AI Agent Portfolio
 
-ÇĞ»ı °úÁ¦ ÇÁ·ÎÁ§Æ® ? **Agentic Knowledge Triage**
+í•™ìƒ ê³¼ì œ í”„ë¡œì íŠ¸ â€” **Agentic Knowledge Triage**
 
-°ø°³µÈ º¸¾È¡¤±â¼ú ¹®¼­¸¦ ¼öÁıÇÏ°í °Ë»öÇÏ¿© Áú¹®¿¡ °ü·ÃµÈ ¹®¼­¸¦ Ã£¾ÆÁÖ´Â AI Agent ÇÁ·ÎÁ§Æ®ÀÔ´Ï´Ù.
+ê³µê°œëœ ë³´ì•ˆÂ·ê¸°ìˆ  ë¬¸ì„œë¥¼ ìˆ˜ì§‘í•˜ê³  ê²€ìƒ‰í•˜ì—¬ ì§ˆë¬¸ì— ê´€ë ¨ëœ ë¬¸ì„œë¥¼ ì°¾ì•„ì£¼ëŠ” AI Agent í”„ë¡œì íŠ¸ì…ë‹ˆë‹¤.
 
-Iyuno AI Agent Engineer Ã¤¿ë°ø°íÀÇ RAG, Tool Calling/API Orchestration, Evaluation ¿ä±¸»çÇ×À» Âü°íÇÏ¿© ±¸ÇöÇß½À´Ï´Ù.
+Iyuno AI Agent Engineer ì±„ìš©ê³µê³ ì˜ RAG, Tool Calling/API Orchestration, Evaluation ìš”êµ¬ì‚¬í•­ì„ ì°¸ê³ í•˜ì—¬ êµ¬í˜„í–ˆìŠµë‹ˆë‹¤.
 
 - GitHub Repository: https://github.com/wlsgkr11/iyuno-agent-portfolio
 - Job Posting: https://iyuno.wd3.myworkdayjobs.com/careers/job/seoul/ai-agent-engineer_jr101122
@@ -13,296 +13,336 @@ Iyuno AI Agent Engineer Ã¤¿ë°ø°íÀÇ RAG, Tool Calling/API Orchestration, Evaluati
 
 ## 1. Project Goal
 
-»ç¿ëÀÚ°¡ º¸¾È ¹× ±â¼ú °ü·Ã Áú¹®À» ÀÔ·ÂÇÏ¸é Agent°¡ Áú¹® À¯ÇüÀ» ÆÇ´ÜÇÏ°í ÀûÀıÇÑ ±â´ÉÀ» ¼±ÅÃÇÕ´Ï´Ù.
+ì‚¬ìš©ìê°€ ë³´ì•ˆ ë° ê¸°ìˆ  ê´€ë ¨ ì§ˆë¬¸ì„ ì…ë ¥í•˜ë©´ Agentê°€ ì§ˆë¬¸ ìœ í˜•ì„ íŒë‹¨í•˜ê³  ì ì ˆí•œ ê¸°ëŠ¥ì„ ì„ íƒí•©ë‹ˆë‹¤.
 
-ÇöÀç ±¸ÇöµÈ Èå¸§:
+í˜„ì¬ êµ¬í˜„ëœ íë¦„:
 
-`	ext
 User Question
-      ¡é
+â†“
 FastAPI
-      ¡é
+â†“
 Agent Router
-      ¡é
+â†“
 Calculator / Policy Lookup / RAG Retriever
-      ¡é
+â†“
 Response + Source
 
-2. Job Posting Requirements Mapping
-Job RequirementProject Evidence
-AI Agent ½Ã½ºÅÛ ¼³°è ¹× °³¹ßapp/agent.py Agent Router
-RAG ±â¹İ °Ë»öChromaDB Vector Search + RAG Retriever
-Tool Calling / API OrchestrationCalculator + Policy Lookup + Routing
-Multi-step ½ÇÇà Èå¸§Question ¡æ Router ¡æ Tool/RAG ¡æ Response
-Evaluation30°³ Æò°¡¼Â + Recall@3 + Latency + Faithfulness
-API / DB ÅëÇÕFastAPI + ChromaDB
-¿À·ù ºĞ¼®evaluation/error_analysis.md
+## 2. Job Posting Requirements Mapping
 
-ÇöÀç Tool ±â´ÉÀº ½ÇÁ¦ LLM Function CallingÀÌ ¾Æ´Ï¶ó ±ÔÄ¢ ±â¹İ Agent RoutingÀ¸·Î ±¸ÇöµÇ¾î ÀÖ½À´Ï´Ù.
-3. Main Features
-Document Processing
-°ø°³ º¸¾È¡¤±â¼ú ¹®¼­ 20°³ ¼öÁı
-¹®¼­ Á¤Á¦
-Document Chunking
-Embedding
-ChromaDB Vector Store ±¸Ãà
-RAG
-Áú¹®À» Vector Search·Î °Ë»ö
-°ü·Ã ¹®¼­ Top-K °Ë»ö
-°Ë»ö °á°úÀÇ Source Ç¥½Ã
-°Ë»ö °á°ú¸¦ ±â¹İÀ¸·Î ´äº¯ µ¥ÀÌÅÍ Á¦°ø
-Calculator Tool
+| Job Requirement | Project Evidence |
+|---|---|
+| AI Agent ì‹œìŠ¤í…œ ì„¤ê³„ ë° ê°œë°œ | `app/agent.py` Agent Router |
+| RAG ê¸°ë°˜ ê²€ìƒ‰ | ChromaDB Vector Search + RAG Retriever |
+| Tool Calling / API Orchestration | Calculator + Policy Lookup + Routing |
+| Multi-step ì‹¤í–‰ íë¦„ | Question â†’ Router â†’ Tool/RAG â†’ Response |
+| Evaluation | 30ê°œ í‰ê°€ì…‹ + Recall@3 + Latency + Faithfulness |
+| API / DB í†µí•© | FastAPI + ChromaDB |
+| ì˜¤ë¥˜ ë¶„ì„ | `evaluation/error_analysis.md` |
 
-°£´ÜÇÑ ¼ö½Ä °è»êÀ» ¼öÇàÇÕ´Ï´Ù.
+í˜„ì¬ Tool ê¸°ëŠ¥ì€ ì‹¤ì œ LLM Function Callingì´ ì•„ë‹ˆë¼ ê·œì¹™ ê¸°ë°˜ Agent Routingìœ¼ë¡œ êµ¬í˜„ë˜ì–´ ìˆìŠµë‹ˆë‹¤.
 
-Example
+## 3. Main Features
+
+### Document Processing
+
+- ê³µê°œ ë³´ì•ˆÂ·ê¸°ìˆ  ë¬¸ì„œ 20ê°œ ìˆ˜ì§‘
+- ë¬¸ì„œ ì •ì œ
+- Document Chunking
+- Embedding
+- ChromaDB Vector Store êµ¬ì¶•
+
+### RAG
+
+- ì§ˆë¬¸ì„ Vector Searchë¡œ ê²€ìƒ‰
+- ê´€ë ¨ ë¬¸ì„œ Top-K ê²€ìƒ‰
+- ê²€ìƒ‰ ê²°ê³¼ì˜ Source í‘œì‹œ
+- ê²€ìƒ‰ ê²°ê³¼ë¥¼ ê¸°ë°˜ìœ¼ë¡œ ë‹µë³€ ë°ì´í„° ì œê³µ
+
+### Calculator Tool
+
+ê°„ë‹¨í•œ ìˆ˜ì‹ ê³„ì‚°ì„ ìˆ˜í–‰í•©ë‹ˆë‹¤.
+
+Example:
 
 Question: What is 120 * 0.15?
 
 Result: 18.0
-Policy Lookup Tool
 
-º¸¾È Á¤Ã¥ °ü·Ã Áú¹®À» ºĞ¼®ÇÏ¿© Á¤Ã¥ Á¤º¸¸¦ Á¶È¸ÇÕ´Ï´Ù.
+### Policy Lookup Tool
 
-Example
+ë³´ì•ˆ ì •ì±… ê´€ë ¨ ì§ˆë¬¸ì„ ë¶„ì„í•˜ì—¬ ì •ì±… ì •ë³´ë¥¼ ì¡°íšŒí•©ë‹ˆë‹¤.
+
+Example:
 
 Question: What is the password policy?
 
 Source: OWASP Password Storage Cheat Sheet
-Agent Routing
+
+### Agent Routing
+
 Calculation Question
-        ¡é
+â†“
 Calculator
 
 Policy Question
-        ¡é
+â†“
 Policy Lookup
 
 Security / Technical Question
-        ¡é
+â†“
 RAG Retriever
-4. Tech Stack
-Python
-FastAPI
-ChromaDB
-LangChain
-BeautifulSoup
-pytest
-GitHub Actions
-5. Project Structure
+## 4. Tech Stack
+
+- Python
+- FastAPI
+- ChromaDB
+- LangChain
+- BeautifulSoup
+- pytest
+- GitHub Actions
+
+## 5. Project Structure
+
 iyuno-agent-portfolio/
-¦§¦¡¦¡ app/
-¦¢   ¦§¦¡¦¡ agent.py
-¦¢   ¦§¦¡¦¡ main.py
-¦¢   ¦§¦¡¦¡ tools.py
-¦¢   ¦¦¦¡¦¡ policy.py
-¦§¦¡¦¡ data/
-¦¢   ¦¦¦¡¦¡ public/
-¦§¦¡¦¡ evaluation/
-¦§¦¡¦¡ scripts/
-¦§¦¡¦¡ tests/
-¦¢   ¦¦¦¡¦¡ test_tools.py
-¦§¦¡¦¡ requirements.txt
-¦¦¦¡¦¡ README.md
-6. Installation
+â”œâ”€â”€ app/
+â”‚   â”œâ”€â”€ agent.py
+â”‚   â”œâ”€â”€ main.py
+â”‚   â”œâ”€â”€ tools.py
+â”‚   â””â”€â”€ policy.py
+â”œâ”€â”€ data/
+â”‚   â””â”€â”€ public/
+â”œâ”€â”€ evaluation/
+â”œâ”€â”€ scripts/
+â”œâ”€â”€ tests/
+â”‚   â””â”€â”€ test_tools.py
+â”œâ”€â”€ requirements.txt
+â””â”€â”€ README.md
 
-°¡»óÈ¯°æÀ» »ı¼ºÇÏ°í ÇÊ¿äÇÑ ÆĞÅ°Áö¸¦ ¼³Ä¡ÇÕ´Ï´Ù.
+## 6. Installation
 
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-7. Run FastAPI
-.\.venv\Scripts\python.exe -m uvicorn app.main:app --reload
+ê°€ìƒí™˜ê²½ì„ ìƒì„±í•˜ê³  í•„ìš”í•œ íŒ¨í‚¤ì§€ë¥¼ ì„¤ì¹˜í•©ë‹ˆë‹¤.
 
-½ÇÇà ÈÄ ¾Æ·¡ ÁÖ¼Ò¿¡¼­ API ¹®¼­¸¦ È®ÀÎÇÒ ¼ö ÀÖ½À´Ï´Ù.
+`python -m venv .venv`
+
+`.\.venv\Scripts\python.exe -m pip install -r requirements.txt`
+
+## 7. Run FastAPI
+
+`.\.venv\Scripts\python.exe -m uvicorn app.main:app --reload`
+
+ì‹¤í–‰ í›„ ì•„ë˜ ì£¼ì†Œì—ì„œ API ë¬¸ì„œë¥¼ í™•ì¸í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 
 http://127.0.0.1:8000/docs
-8. API Examples
-Calculator
-Invoke-RestMethod -Uri "http://127.0.0.1:8000/ask" -Method Post -ContentType "application/json" -Body '{"question":"What is 120 * 0.15?"}'
+
+## 8. API Examples
+
+### Calculator
+
+`Invoke-RestMethod -Uri "http://127.0.0.1:8000/ask" -Method Post -ContentType "application/json" -Body '{"question":"What is 120 * 0.15?"}'`
 
 Expected result:
 
-type: tool
-answer: 18.0
-source: calculator
-Policy Lookup
-Invoke-RestMethod -Uri "http://127.0.0.1:8000/ask" -Method Post -ContentType "application/json" -Body '{"question":"What is the password policy?"}'
-RAG
-Invoke-RestMethod -Uri "http://127.0.0.1:8000/ask" -Method Post -ContentType "application/json" -Body '{"question":"How can I improve account security?"}'
-9. Evaluation
+- type: tool
+- answer: 18.0
+- source: calculator
 
-ÃÑ 30°³ÀÇ Áú¹®À» »ç¿ëÇÏ¿© °Ë»ö ¼º´ÉÀ» Æò°¡Çß½À´Ï´Ù.
+### Policy Lookup
 
-Retrieval Evaluation
-Total Questions: 30
-Hits: 30
-Misses: 0
-Recall@3: 1.0
-Average Retrieval Latency: 0.2014 seconds
+`Invoke-RestMethod -Uri "http://127.0.0.1:8000/ask" -Method Post -ContentType "application/json" -Body '{"question":"What is the password policy?"}'`
 
-Æò°¡ °á°ú ÆÄÀÏ:
+### RAG
 
-evaluation/results.json
-evaluation/metrics.json
-Faithfulness Approximation
-Total Questions: 30
-Faithful: 29
-Unfaithful: 1
-Faithfulness: 96.67%
+`Invoke-RestMethod -Uri "http://127.0.0.1:8000/ask" -Method Post -ContentType "application/json" -Body '{"question":"How can I improve account security?"}'`
 
-ÇöÀç Faithfulness Æò°¡´Â LLM ±â¹İ Æò°¡°¡ ¾Æ´Ñ keyword-overlap ±â¹İ ±Ù»ç Æò°¡ÀÔ´Ï´Ù.
+## 9. Evaluation
 
-µû¶ó¼­ ÇØ´ç ¼öÄ¡´Â Á¤½Ä LLM-as-a-Judge Æò°¡ °á°ú°¡ ¾Æ´Ï¶ó ÇöÀç °Ë»ö °á°ú¸¦ Æò°¡ÇÏ±â À§ÇÑ ½ÇÇèÀû ÁöÇ¥ÀÔ´Ï´Ù.
+ì´ 30ê°œì˜ ì§ˆë¬¸ì„ ì‚¬ìš©í•˜ì—¬ ê²€ìƒ‰ ì„±ëŠ¥ì„ í‰ê°€í–ˆìŠµë‹ˆë‹¤.
 
-10. Error Analysis
+### Retrieval Evaluation
 
-Faithfulness Æò°¡¿¡¼­ 1°³ÀÇ ½ÇÆĞ »ç·Ê°¡ È®ÀÎµÇ¾ú½À´Ï´Ù.
+- Total Questions: 30
+- Hits: 30
+- Misses: 0
+- Recall@3: 1.0
+- Average Retrieval Latency: 0.2014 seconds
 
-Question
+í‰ê°€ ê²°ê³¼ íŒŒì¼:
+
+- `evaluation/results.json`
+- `evaluation/metrics.json`
+
+### Faithfulness Approximation
+
+- Total Questions: 30
+- Faithful: 29
+- Unfaithful: 1
+- Faithfulness: 96.67%
+
+í˜„ì¬ Faithfulness í‰ê°€ëŠ” LLM ê¸°ë°˜ í‰ê°€ê°€ ì•„ë‹Œ keyword-overlap ê¸°ë°˜ ê·¼ì‚¬ í‰ê°€ì…ë‹ˆë‹¤.
+
+ë”°ë¼ì„œ í•´ë‹¹ ìˆ˜ì¹˜ëŠ” ì •ì‹ LLM-as-a-Judge í‰ê°€ ê²°ê³¼ê°€ ì•„ë‹ˆë¼ í˜„ì¬ ê²€ìƒ‰ ê²°ê³¼ë¥¼ í‰ê°€í•˜ê¸° ìœ„í•œ ì‹¤í—˜ì  ì§€í‘œì…ë‹ˆë‹¤.
+
+## 10. Error Analysis
+
+Faithfulness í‰ê°€ì—ì„œ 1ê°œì˜ ì‹¤íŒ¨ ì‚¬ë¡€ê°€ í™•ì¸ë˜ì—ˆìŠµë‹ˆë‹¤.
+
+Question:
 
 How can I improve account security?
 
-Expected Source
+Expected Source:
 
-authentication.md
+`authentication.md`
 
-Result
+Result:
 
-faithful = false
+`faithful = false`
 
-°Ë»ö Æò°¡¿¡¼­´Â ±â´ë ¹®¼­°¡ °Ë»öµÇ¾úÁö¸¸ keyword-overlap ¹æ½ÄÀÇ Faithfulness Æò°¡¿¡¼­ ½ÇÆĞ·Î ºĞ·ùµÇ¾ú½À´Ï´Ù.
+ê²€ìƒ‰ í‰ê°€ì—ì„œëŠ” ê¸°ëŒ€ ë¬¸ì„œê°€ ê²€ìƒ‰ë˜ì—ˆì§€ë§Œ keyword-overlap ë°©ì‹ì˜ Faithfulness í‰ê°€ì—ì„œ ì‹¤íŒ¨ë¡œ ë¶„ë¥˜ë˜ì—ˆìŠµë‹ˆë‹¤.
 
-ÀÚ¼¼ÇÑ ºĞ¼®:
+ìì„¸í•œ ë¶„ì„:
 
-evaluation/error_analysis.md
+`evaluation/error_analysis.md`
 
-ÇâÈÄ °³¼± ¹æÇâ:
+í–¥í›„ ê°œì„  ë°©í–¥:
 
-LLM ±â¹İ Faithfulness Æò°¡
-Semantic Similarity Æò°¡
-Query Expansion
-Chunking ¹× Retrieval ¼³Á¤ °³¼±
-11. Evaluation Graphs
+- LLM ê¸°ë°˜ Faithfulness í‰ê°€
+- Semantic Similarity í‰ê°€
+- Query Expansion
+- Chunking ë° Retrieval ì„¤ì • ê°œì„ 
+## 11. Evaluation Graphs
 
-Æò°¡ °á°ú¸¦ ½Ã°¢È­Çß½À´Ï´Ù.
+í‰ê°€ ê²°ê³¼ë¥¼ ì‹œê°í™”í–ˆìŠµë‹ˆë‹¤.
 
-evaluation/recall_at_3.png
-evaluation/latency.png
-12. Testing
+- `evaluation/recall_at_3.png`
+- `evaluation/latency.png`
 
-Pytest¸¦ »ç¿ëÇÏ¿© Tool ±â´ÉÀ» Å×½ºÆ®Çß½À´Ï´Ù.
+## 12. Testing
 
-ÇöÀç Å×½ºÆ® °á°ú:
+Pytestë¥¼ ì‚¬ìš©í•˜ì—¬ Tool ê¸°ëŠ¥ì„ í…ŒìŠ¤íŠ¸í–ˆìŠµë‹ˆë‹¤.
 
-5 passed
+í˜„ì¬ í…ŒìŠ¤íŠ¸ ê²°ê³¼:
 
-Å×½ºÆ® ÆÄÀÏ:
+**5 passed**
 
-tests/test_tools.py
+í…ŒìŠ¤íŠ¸ íŒŒì¼:
 
-Å×½ºÆ® Ç×¸ñ:
+`tests/test_tools.py`
 
-Calculator addition
-Calculator multiplication
-Calculator division
-Calculator subtraction
-Invalid expression handling
-13. Continuous Integration
+í…ŒìŠ¤íŠ¸ í•­ëª©:
 
-GitHub Actions¸¦ »ç¿ëÇÏ¿© Push ¹× Pull Request ½Ã Å×½ºÆ®°¡ ÀÚµ¿ ½ÇÇàµÇµµ·Ï ±¸¼ºÇß½À´Ï´Ù.
+- Calculator addition
+- Calculator multiplication
+- Calculator division
+- Calculator subtraction
+- Invalid expression handling
+
+## 13. Continuous Integration
+
+GitHub Actionsë¥¼ ì‚¬ìš©í•˜ì—¬ Push ë° Pull Request ì‹œ í…ŒìŠ¤íŠ¸ê°€ ìë™ ì‹¤í–‰ë˜ë„ë¡ êµ¬ì„±í–ˆìŠµë‹ˆë‹¤.
 
 GitHub Push
-    ¡é
+â†“
 GitHub Actions
-    ¡é
+â†“
 Pytest
-    ¡é
+â†“
 5 Tests Passed
-14. Data Sources
 
-ÇÁ·ÎÁ§Æ®¿¡¼­´Â °ø°³ÀûÀ¸·Î Á¢±Ù °¡´ÉÇÑ º¸¾È¡¤±â¼ú ¹®¼­¸¦ »ç¿ëÇß½À´Ï´Ù.
+## 14. Data Sources
 
-ÁÖ¿ä ÃâÃ³:
+í”„ë¡œì íŠ¸ì—ì„œëŠ” ê³µê°œì ìœ¼ë¡œ ì ‘ê·¼ ê°€ëŠ¥í•œ ë³´ì•ˆÂ·ê¸°ìˆ  ë¬¸ì„œë¥¼ ì‚¬ìš©í–ˆìŠµë‹ˆë‹¤.
 
-OWASP Cheat Sheet Series
-OWASP API Security
-OWASP Top 10
-OWASP LLM Security
-±âÅ¸ OWASP º¸¾È °ü·Ã °ø°³ ¹®¼­
+ì£¼ìš” ì¶œì²˜:
 
-¹®¼­ ¼öÁı ½ÃÁ¡:
+- OWASP Cheat Sheet Series
+- OWASP API Security
+- OWASP Top 10
+- OWASP LLM Security
+- ê¸°íƒ€ OWASP ë³´ì•ˆ ê´€ë ¨ ê³µê°œ ë¬¸ì„œ
+
+ë¬¸ì„œ ìˆ˜ì§‘ ì‹œì :
 
 2026-09
 
-°¢ ¿ø¹® ¹®¼­ÀÇ ÀÌ¿ë Á¶°Ç ¹× ¶óÀÌ¼±½º´Â ÇØ´ç °ø½Ä ÃâÃ³ÀÇ ¶óÀÌ¼±½º Á¤º¸¸¦ µû¸¨´Ï´Ù.
+ê° ì›ë¬¸ ë¬¸ì„œì˜ ì´ìš© ì¡°ê±´ ë° ë¼ì´ì„ ìŠ¤ëŠ” í•´ë‹¹ ê³µì‹ ì¶œì²˜ì˜ ë¼ì´ì„ ìŠ¤ ì •ë³´ë¥¼ ë”°ë¦…ë‹ˆë‹¤.
 
-ÇÁ·ÎÁ§Æ®¿¡´Â °³ÀÎ Á¤º¸, ºñ°ø°³ È¸»ç ÀÚ·á ¶Ç´Â API SecretÀ» Æ÷ÇÔÇÏÁö ¾Ê¾Ò½À´Ï´Ù.
+í”„ë¡œì íŠ¸ì—ëŠ” ê°œì¸ ì •ë³´, ë¹„ê³µê°œ íšŒì‚¬ ìë£Œ ë˜ëŠ” API Secretì„ í¬í•¨í•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.
 
-15. Limitations
+## 15. Limitations
 
-ÇöÀç ÇÁ·ÎÁ§Æ®¿¡´Â ´ÙÀ½°ú °°Àº Á¦ÇÑ»çÇ×ÀÌ ÀÖ½À´Ï´Ù.
+í˜„ì¬ í”„ë¡œì íŠ¸ì—ëŠ” ë‹¤ìŒê³¼ ê°™ì€ ì œí•œì‚¬í•­ì´ ìˆìŠµë‹ˆë‹¤.
 
-ÇöÀç RAG´Â °Ë»öµÈ ¹®¼­¿Í Source¸¦ ¹İÈ¯ÇÏ¸ç º°µµÀÇ LLM ÃÖÁ¾ ´äº¯ »ı¼º ´Ü°è´Â ±¸ÇöÇÏÁö ¾Ê¾Ò½À´Ï´Ù.
-Tool ±â´ÉÀº ÇöÀç ±ÔÄ¢ ±â¹İ RoutingÀ¸·Î µ¿ÀÛÇÕ´Ï´Ù.
-½ÇÁ¦ LLM Function CallingÀº ¾ÆÁ÷ ±¸ÇöÇÏÁö ¾Ê¾Ò½À´Ï´Ù.
-Policy LookupÀº ¿ÜºÎ API°¡ ¾Æ´Ñ ÇÁ·ÎÁ§Æ® ³»ºÎ Á¤Ã¥ µ¥ÀÌÅÍº£ÀÌ½º¸¦ »ç¿ëÇÕ´Ï´Ù.
-Faithfulness Æò°¡´Â keyword-overlap ±â¹İ ±Ù»ç ¹æ¹ıÀÔ´Ï´Ù.
-Feedback Loop´Â ¾ÆÁ÷ ±¸ÇöÇÏÁö ¾Ê¾Ò½À´Ï´Ù.
-16. Future Work
+- í˜„ì¬ RAGëŠ” ê²€ìƒ‰ëœ ë¬¸ì„œì™€ Sourceë¥¼ ë°˜í™˜í•˜ë©° ë³„ë„ì˜ LLM ìµœì¢… ë‹µë³€ ìƒì„± ë‹¨ê³„ëŠ” êµ¬í˜„í•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.
+- Tool ê¸°ëŠ¥ì€ í˜„ì¬ ê·œì¹™ ê¸°ë°˜ Routingìœ¼ë¡œ ë™ì‘í•©ë‹ˆë‹¤.
+- ì‹¤ì œ LLM Function Callingì€ ì•„ì§ êµ¬í˜„í•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.
+- Policy Lookupì€ ì™¸ë¶€ APIê°€ ì•„ë‹Œ í”„ë¡œì íŠ¸ ë‚´ë¶€ ì •ì±… ë°ì´í„°ë² ì´ìŠ¤ë¥¼ ì‚¬ìš©í•©ë‹ˆë‹¤.
+- Faithfulness í‰ê°€ëŠ” keyword-overlap ê¸°ë°˜ ê·¼ì‚¬ ë°©ë²•ì…ë‹ˆë‹¤.
+- Feedback LoopëŠ” ì•„ì§ êµ¬í˜„í•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.
 
-ÇâÈÄ ´ÙÀ½ ±â´ÉÀ» Ãß°¡ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+## 16. Future Work
 
-LLM ±â¹İ ÃÖÁ¾ ´äº¯ »ı¼º
-½ÇÁ¦ LLM Function Calling
-Search API ¹× Policy API ¿¬µ¿
-LLM ±â¹İ Faithfulness Æò°¡
-»ç¿ëÀÚ Feedback Loop
-Streamlit Demo
-Demo Video
-´õ¿í ´Ù¾çÇÑ Evaluation Dataset
-Retrieval ¹× Agent Routing ¼º´É °³¼±
-17. Current Progress
- GitHub Repository
- Public Document Collection
- 20 Public Documents
- Document Cleaning
- Chunking
- Embedding
- Vector Search
- RAG Retrieval
- Source Citation
- Calculator Tool
- Policy Lookup Tool
- Agent Routing
- FastAPI API
- Evaluation Dataset
- 30 Evaluation Questions
- Recall@3
- Retrieval Latency
- Faithfulness Approximation
- Evaluation Graphs
- Error Analysis
- Pytest
- GitHub Actions CI
- LLM Final Answer Generation
- Real LLM Function Calling
- Search API
- External Policy API
- Feedback Loop
- Streamlit Demo
- Demo Video
- Final Retrospective
-18. Retrospective
+í–¥í›„ ë‹¤ìŒ ê¸°ëŠ¥ì„ ì¶”ê°€í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 
-ÀÌ¹ø ÇÁ·ÎÁ§Æ®¸¦ ÅëÇØ ´Ü¼øÈ÷ LLMÀ» »ç¿ëÇÏ´Â °Í°ú Agent ½Ã½ºÅÛÀ» ±¸¼ºÇÏ´Â °ÍÀÇ Â÷ÀÌ¸¦ °æÇèÇß½À´Ï´Ù.
+- LLM ê¸°ë°˜ ìµœì¢… ë‹µë³€ ìƒì„±
+- ì‹¤ì œ LLM Function Calling
+- Search API ë° Policy API ì—°ë™
+- LLM ê¸°ë°˜ Faithfulness í‰ê°€
+- ì‚¬ìš©ì Feedback Loop
+- Streamlit Demo
+- Demo Video
+- ë”ìš± ë‹¤ì–‘í•œ Evaluation Dataset
+- Retrieval ë° Agent Routing ì„±ëŠ¥ ê°œì„ 
 
-Æ¯È÷ ¹®¼­ ¼öÁıºÎÅÍ Á¤Á¦, Chunking, Embedding, Vector Search, RAG, Tool Routing, API, Evaluation, Testing±îÁö ÇÏ³ªÀÇ ÇÁ·ÎÁ§Æ® Èå¸§À¸·Î ¿¬°áÇØº¸¸é¼­ °¢ ±¸¼º ¿ä¼Ò°¡ ¾î¶»°Ô ¿¬°áµÇ´ÂÁö ÀÌÇØÇÒ ¼ö ÀÖ¾ú½À´Ï´Ù.
+## 17. Current Progress
 
-¶ÇÇÑ 30°³ÀÇ Æò°¡ Áú¹®À» ±¸¼ºÇÏ°í Recall@3¿Í Latency¸¦ ÃøÁ¤ÇÏ¸é¼­ ±â´É ±¸Çö»Ó¸¸ ¾Æ´Ï¶ó °á°ú¸¦ Á¤·®ÀûÀ¸·Î È®ÀÎÇÏ´Â °úÁ¤µµ °æÇèÇß½À´Ï´Ù.
+### Completed
 
-Faithfulness Æò°¡¿¡¼­´Â ´Ü¼øÇÑ keyword-overlap ¹æ½ÄÀÇ ÇÑ°èµµ È®ÀÎÇß½À´Ï´Ù. ¾ÕÀ¸·Î´Â LLM ±â¹İ Æò°¡¿Í ½ÇÁ¦ Function Calling, Feedback Loop µîÀ» Ãß°¡ÇÏ¿© º¸´Ù ½ÇÁ¦ ¼­ºñ½º¿¡ °¡±î¿î Agent ½Ã½ºÅÛÀ¸·Î ¹ßÀü½ÃÅ°°íÀÚ ÇÕ´Ï´Ù.
+- GitHub Repository
+- Public Document Collection
+- 20 Public Documents
+- Document Cleaning
+- Chunking
+- Embedding
+- Vector Search
+- RAG Retrieval
+- Source Citation
+- Calculator Tool
+- Policy Lookup Tool
+- Agent Routing
+- FastAPI API
+- Evaluation Dataset
+- 30 Evaluation Questions
+- Recall@3
+- Retrieval Latency
+- Faithfulness Approximation
+- Evaluation Graphs
+- Error Analysis
+- Pytest
+- GitHub Actions CI
+- Final Retrospective
 
-License
+### Not Yet Implemented
+
+- LLM Final Answer Generation
+- Real LLM Function Calling
+- Search API
+- External Policy API
+- Feedback Loop
+- Streamlit Demo
+- Demo Video
+
+## 18. Retrospective
+
+ì´ë²ˆ í”„ë¡œì íŠ¸ë¥¼ í†µí•´ ë‹¨ìˆœíˆ LLMì„ ì‚¬ìš©í•˜ëŠ” ê²ƒê³¼ Agent ì‹œìŠ¤í…œì„ êµ¬ì„±í•˜ëŠ” ê²ƒì˜ ì°¨ì´ë¥¼ ê²½í—˜í–ˆìŠµë‹ˆë‹¤.
+
+íŠ¹íˆ ë¬¸ì„œ ìˆ˜ì§‘ë¶€í„° ì •ì œ, Chunking, Embedding, Vector Search, RAG, Tool Routing, API, Evaluation, Testingê¹Œì§€ í•˜ë‚˜ì˜ í”„ë¡œì íŠ¸ íë¦„ìœ¼ë¡œ ì—°ê²°í•´ë³´ë©´ì„œ ê° êµ¬ì„± ìš”ì†Œê°€ ì–´ë–»ê²Œ ì—°ê²°ë˜ëŠ”ì§€ ì´í•´í•  ìˆ˜ ìˆì—ˆìŠµë‹ˆë‹¤.
+
+ë˜í•œ 30ê°œì˜ í‰ê°€ ì§ˆë¬¸ì„ êµ¬ì„±í•˜ê³  Recall@3ì™€ Latencyë¥¼ ì¸¡ì •í•˜ë©´ì„œ ê¸°ëŠ¥ êµ¬í˜„ë¿ë§Œ ì•„ë‹ˆë¼ ê²°ê³¼ë¥¼ ì •ëŸ‰ì ìœ¼ë¡œ í™•ì¸í•˜ëŠ” ê³¼ì •ë„ ê²½í—˜í–ˆìŠµë‹ˆë‹¤.
+
+Faithfulness í‰ê°€ì—ì„œëŠ” ë‹¨ìˆœí•œ keyword-overlap ë°©ì‹ì˜ í•œê³„ë„ í™•ì¸í–ˆìŠµë‹ˆë‹¤. ì•ìœ¼ë¡œëŠ” LLM ê¸°ë°˜ í‰ê°€ì™€ ì‹¤ì œ Function Calling, Feedback Loop ë“±ì„ ì¶”ê°€í•˜ì—¬ ë³´ë‹¤ ì‹¤ì œ ì„œë¹„ìŠ¤ì— ê°€ê¹Œìš´ Agent ì‹œìŠ¤í…œìœ¼ë¡œ ë°œì „ì‹œí‚¤ê³ ì í•©ë‹ˆë‹¤.
+
+## License
 
 This project is for educational purposes.
 
