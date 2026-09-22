@@ -1,8 +1,8 @@
-# Iyuno AI Agent Portfolio
+﻿# Iyuno AI Agent Portfolio
 
-학생 과제 프로젝트 — **Agentic Knowledge Triage**
+**Agentic Knowledge Triage**
 
-공개된 보안·기술 문서를 수집하고 검색하여 질문에 관련된 문서를 찾아주는 AI Agent 프로젝트입니다.
+공개된 보안·기술 문서를 수집하고 검색하여 질문과 관련된 문서를 찾아주는 AI Agent 프로젝트입니다.
 
 Iyuno AI Agent Engineer 채용공고의 RAG, Tool Calling/API Orchestration, Evaluation 요구사항을 참고하여 구현했습니다.
 
@@ -15,17 +15,19 @@ Iyuno AI Agent Engineer 채용공고의 RAG, Tool Calling/API Orchestration, Eva
 
 사용자가 보안 및 기술 관련 질문을 입력하면 Agent가 질문 유형을 판단하고 적절한 기능을 선택합니다.
 
-현재 구현된 흐름:
+### Architecture
 
-User Question
-↓
-FastAPI
-↓
-Agent Router
-↓
-Calculator / Policy Lookup / RAG Retriever
-↓
+User Question  
+↓  
+FastAPI  
+↓  
+Agent Router  
+↓  
+Calculator / Policy Lookup / RAG Retriever  
+↓  
 Response + Source
+
+---
 
 ## 2. Job Posting Requirements Mapping
 
@@ -39,7 +41,9 @@ Response + Source
 | API / DB 통합 | FastAPI + ChromaDB |
 | 오류 분석 | `evaluation/error_analysis.md` |
 
-현재 Tool 기능은 실제 LLM Function Calling이 아니라 규칙 기반 Agent Routing으로 구현되어 있습니다.
+> 현재 Tool 기능은 실제 LLM Function Calling이 아니라 규칙 기반 Agent Routing으로 구현되어 있습니다.
+
+---
 
 ## 3. Main Features
 
@@ -53,44 +57,39 @@ Response + Source
 
 ### RAG
 
-- 질문을 Vector Search로 검색
+- 사용자 질문을 Vector Search로 검색
 - 관련 문서 Top-K 검색
 - 검색 결과의 Source 표시
 - 검색 결과를 기반으로 답변 데이터 제공
 
 ### Calculator Tool
 
-간단한 수식 계산을 수행합니다.
+간단한 수식을 계산하는 Tool입니다.
 
 Example:
 
-Question: What is 120 * 0.15?
-
-Result: 18.0
+- Question: `What is 120 * 0.15?`
+- Result: `18.0`
 
 ### Policy Lookup Tool
 
-보안 정책 관련 질문을 분석하여 정책 정보를 조회합니다.
+보안 정책 관련 질문을 분석하여 프로젝트 내부 정책 데이터를 조회합니다.
 
 Example:
 
-Question: What is the password policy?
-
-Source: OWASP Password Storage Cheat Sheet
+- Question: `What is the password policy?`
+- Source: `OWASP Password Storage Cheat Sheet`
 
 ### Agent Routing
 
-Calculation Question
-↓
-Calculator
+| Question Type | Selected Function |
+|---|---|
+| Calculation Question | Calculator |
+| Policy Question | Policy Lookup |
+| Security / Technical Question | RAG Retriever |
 
-Policy Question
-↓
-Policy Lookup
+---
 
-Security / Technical Question
-↓
-RAG Retriever
 ## 4. Tech Stack
 
 - Python
@@ -101,58 +100,70 @@ RAG Retriever
 - pytest
 - GitHub Actions
 
+---
+
 ## 5. Project Structure
 
-iyuno-agent-portfolio/
-├── app/
-│   ├── agent.py
-│   ├── main.py
-│   ├── tools.py
-│   └── policy.py
-├── data/
-│   └── public/
-├── evaluation/
-├── scripts/
-├── tests/
-│   └── test_tools.py
-├── requirements.txt
-└── README.md
+    iyuno-agent-portfolio/
+    ├── app/
+    │   ├── agent.py
+    │   ├── main.py
+    │   ├── tools.py
+    │   └── policy.py
+    ├── data/
+    │   └── public/
+    ├── evaluation/
+    ├── scripts/
+    ├── tests/
+    │   └── test_tools.py
+    ├── requirements.txt
+    └── README.md
+
+---
 
 ## 6. Installation
 
 가상환경을 생성하고 필요한 패키지를 설치합니다.
 
-`python -m venv .venv`
+    python -m venv .venv
 
-`.\.venv\Scripts\python.exe -m pip install -r requirements.txt`
+    .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+
+---
 
 ## 7. Run FastAPI
 
-`.\.venv\Scripts\python.exe -m uvicorn app.main:app --reload`
+다음 명령어로 FastAPI 서버를 실행할 수 있습니다.
 
-실행 후 아래 주소에서 API 문서를 확인할 수 있습니다.
+    .\.venv\Scripts\python.exe -m uvicorn app.main:app --reload
+
+실행 후 다음 주소에서 API 문서를 확인할 수 있습니다.
 
 http://127.0.0.1:8000/docs
+
+---
 
 ## 8. API Examples
 
 ### Calculator
 
-`Invoke-RestMethod -Uri "http://127.0.0.1:8000/ask" -Method Post -ContentType "application/json" -Body '{"question":"What is 120 * 0.15?"}'`
+    Invoke-RestMethod -Uri "http://127.0.0.1:8000/ask" -Method Post -ContentType "application/json" -Body '{"question":"What is 120 * 0.15?"}'
 
 Expected result:
 
-- type: tool
-- answer: 18.0
-- source: calculator
+- type: `tool`
+- answer: `18.0`
+- source: `calculator`
 
 ### Policy Lookup
 
-`Invoke-RestMethod -Uri "http://127.0.0.1:8000/ask" -Method Post -ContentType "application/json" -Body '{"question":"What is the password policy?"}'`
+    Invoke-RestMethod -Uri "http://127.0.0.1:8000/ask" -Method Post -ContentType "application/json" -Body '{"question":"What is the password policy?"}'
 
 ### RAG
 
-`Invoke-RestMethod -Uri "http://127.0.0.1:8000/ask" -Method Post -ContentType "application/json" -Body '{"question":"How can I improve account security?"}'`
+    Invoke-RestMethod -Uri "http://127.0.0.1:8000/ask" -Method Post -ContentType "application/json" -Body '{"question":"How can I improve account security?"}'
+
+---
 
 ## 9. Evaluation
 
@@ -160,11 +171,13 @@ Expected result:
 
 ### Retrieval Evaluation
 
-- Total Questions: 30
-- Hits: 30
-- Misses: 0
-- Recall@3: 1.0
-- Average Retrieval Latency: 0.2014 seconds
+| Metric | Result |
+|---|---:|
+| Total Questions | 30 |
+| Hits | 30 |
+| Misses | 0 |
+| Recall@3 | 1.0 |
+| Average Retrieval Latency | 0.2014 seconds |
 
 평가 결과 파일:
 
@@ -173,49 +186,58 @@ Expected result:
 
 ### Faithfulness Approximation
 
-- Total Questions: 30
-- Faithful: 29
-- Unfaithful: 1
-- Faithfulness: 96.67%
+| Metric | Result |
+|---|---:|
+| Total Questions | 30 |
+| Faithful | 29 |
+| Unfaithful | 1 |
+| Faithfulness | 96.67% |
 
-현재 Faithfulness 평가는 LLM 기반 평가가 아닌 keyword-overlap 기반 근사 평가입니다.
+현재 Faithfulness 평가는 LLM 기반 평가가 아닌 **keyword-overlap 기반 근사 평가**입니다.
 
-따라서 해당 수치는 정식 LLM-as-a-Judge 평가 결과가 아니라 현재 검색 결과를 평가하기 위한 실험적 지표입니다.
+따라서 96.67%는 정식 LLM-as-a-Judge 평가 결과가 아니라 현재 검색 결과를 평가하기 위한 실험적 지표입니다.
+
+---
 
 ## 10. Error Analysis
 
 Faithfulness 평가에서 1개의 실패 사례가 확인되었습니다.
 
-Question:
+### Question
 
-How can I improve account security?
+`How can I improve account security?`
 
-Expected Source:
+### Expected Source
 
 `authentication.md`
 
-Result:
+### Result
 
 `faithful = false`
 
 검색 평가에서는 기대 문서가 검색되었지만 keyword-overlap 방식의 Faithfulness 평가에서 실패로 분류되었습니다.
 
-자세한 분석:
+자세한 분석은 다음 파일에서 확인할 수 있습니다.
 
 `evaluation/error_analysis.md`
 
-향후 개선 방향:
+### Future Improvements
 
 - LLM 기반 Faithfulness 평가
 - Semantic Similarity 평가
 - Query Expansion
 - Chunking 및 Retrieval 설정 개선
+
+---
+
 ## 11. Evaluation Graphs
 
 평가 결과를 시각화했습니다.
 
 - `evaluation/recall_at_3.png`
 - `evaluation/latency.png`
+
+---
 
 ## 12. Testing
 
@@ -229,7 +251,7 @@ Pytest를 사용하여 Tool 기능을 테스트했습니다.
 
 `tests/test_tools.py`
 
-테스트 항목:
+### Test Cases
 
 - Calculator addition
 - Calculator multiplication
@@ -237,23 +259,29 @@ Pytest를 사용하여 Tool 기능을 테스트했습니다.
 - Calculator subtraction
 - Invalid expression handling
 
+---
+
 ## 13. Continuous Integration
 
 GitHub Actions를 사용하여 Push 및 Pull Request 시 테스트가 자동 실행되도록 구성했습니다.
 
-GitHub Push
-↓
-GitHub Actions
-↓
-Pytest
-↓
+### CI Flow
+
+GitHub Push  
+↓  
+GitHub Actions  
+↓  
+Pytest  
+↓  
 5 Tests Passed
+
+---
 
 ## 14. Data Sources
 
 프로젝트에서는 공개적으로 접근 가능한 보안·기술 문서를 사용했습니다.
 
-주요 출처:
+### Main Sources
 
 - OWASP Cheat Sheet Series
 - OWASP API Security
@@ -261,13 +289,15 @@ Pytest
 - OWASP LLM Security
 - 기타 OWASP 보안 관련 공개 문서
 
-문서 수집 시점:
+### Collection Date
 
 2026-09
 
 각 원문 문서의 이용 조건 및 라이선스는 해당 공식 출처의 라이선스 정보를 따릅니다.
 
 프로젝트에는 개인 정보, 비공개 회사 자료 또는 API Secret을 포함하지 않았습니다.
+
+---
 
 ## 15. Limitations
 
@@ -276,9 +306,11 @@ Pytest
 - 현재 RAG는 검색된 문서와 Source를 반환하며 별도의 LLM 최종 답변 생성 단계는 구현하지 않았습니다.
 - Tool 기능은 현재 규칙 기반 Routing으로 동작합니다.
 - 실제 LLM Function Calling은 아직 구현하지 않았습니다.
-- Policy Lookup은 외부 API가 아닌 프로젝트 내부 정책 데이터베이스를 사용합니다.
+- Policy Lookup은 외부 API가 아닌 프로젝트 내부 정책 데이터를 사용합니다.
 - Faithfulness 평가는 keyword-overlap 기반 근사 방법입니다.
 - Feedback Loop는 아직 구현하지 않았습니다.
+
+---
 
 ## 16. Future Work
 
@@ -293,6 +325,8 @@ Pytest
 - Demo Video
 - 더욱 다양한 Evaluation Dataset
 - Retrieval 및 Agent Routing 성능 개선
+
+---
 
 ## 17. Current Progress
 
@@ -332,6 +366,8 @@ Pytest
 - Streamlit Demo
 - Demo Video
 
+---
+
 ## 18. Retrospective
 
 이번 프로젝트를 통해 단순히 LLM을 사용하는 것과 Agent 시스템을 구성하는 것의 차이를 경험했습니다.
@@ -341,6 +377,8 @@ Pytest
 또한 30개의 평가 질문을 구성하고 Recall@3와 Latency를 측정하면서 기능 구현뿐만 아니라 결과를 정량적으로 확인하는 과정도 경험했습니다.
 
 Faithfulness 평가에서는 단순한 keyword-overlap 방식의 한계도 확인했습니다. 앞으로는 LLM 기반 평가와 실제 Function Calling, Feedback Loop 등을 추가하여 보다 실제 서비스에 가까운 Agent 시스템으로 발전시키고자 합니다.
+
+---
 
 ## License
 
